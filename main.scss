@@ -1,0 +1,121 @@
+@import "base/reset";
+@import "base/mixin";
+@import "base/variable";
+@import "base/header";
+@import "base/footer";
+@import "base/reposiv";
+
+// 버튼 공통
+.btn{
+  @include border(all);
+  display: inline-block;
+  padding: $spacing-sm $spacing-lg;
+  color: $color-white;
+  background-color: $color-black;
+  font-size: $font-md;
+  transition: 0.3s;
+  &:hover{
+   background-color: $color-bg-pink;
+   color: #fff;
+  }
+}
+.btn.btn-outline{
+  background-color: $color-white;
+  color: $color-black;
+  transition: 0.3s;
+  &:hover{
+    background-color: $color-bg-pink;
+    color: $color-white;
+  }
+}
+.container{
+  width: 1300px; height: auto;
+  margin: 0 auto;
+}
+@include respond(desktop){
+  body{background-color: gainsboro;}
+  .container{width: 100%;}
+}
+@include respond(tablet){
+  body{background-color: beige}
+  .container{width: 100%}
+}
+@include respond(mobile){
+  body{background-color: whitesmoke}
+  .container{width: 100%}
+}
+// 공통
+section{
+  @include border(bottom);
+  padding: $spacing-5xl;
+}
+.section-header{
+  @include grid-container(1fr auto, $grid-gap-md);
+  align-items: center;
+  margin-bottom: $grid-gap-lg;
+  h2{
+    font-size: $font-2xl;
+    font-weight: 600;
+    margin-bottom: $spacing-xs;
+  }
+}
+
+//메인 비주얼
+.visual{
+  .container{
+    @include grid-container(1fr 1fr, $grid-gap-md);
+    align-items: center;
+    .visual-content{
+      h2{
+        font-size: $font-headline;
+        font-weight: 700;
+        line-height: 1.1;
+      }
+      p{
+        font-size: $font-md;
+        font-weight: 300;
+        margin: $spacing-2xl 0;
+      }
+    }
+    .visual-image{
+      @include border(all);
+      @include grid-center;
+      aspect-ratio: 4/3;
+      background-color: $color-white;
+      // aspect-ratio: 비율 설정
+    }
+  }
+}
+
+//제품
+.product{
+  .container{
+    .product-wrap{
+      .product-card{
+        .product-image{}
+        .product-badge{}
+        .product-info{
+          .product-category{}
+          .product-title{}
+          .product-price{}
+          .product-price-original{}
+        }
+      }
+    }
+  }
+}
+
+@include respond(desktop){
+  .visual{
+    .container{
+    @include grid-container(1fr, $grid-gap-sm);
+    width: 100%;
+    .visual-content{order: 1;} 
+    .visual-image{order: 2;}
+   }
+  }
+}
+@include respond(tablet){
+  
+}
+@include respond(mobile){}

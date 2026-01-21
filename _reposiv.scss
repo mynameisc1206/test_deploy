@@ -1,0 +1,12 @@
+@include respond(desktop){
+  .visual{
+    .container{
+      @include grid-container(1fr, $grid-gap-sm)
+    }
+  }
+}
+// 반응형 1024px
+@include respond(tablet){}
+// 반응형 768px
+@include respond(mobile){}
+// 반응형 480px

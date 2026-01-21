@@ -1,0 +1,50 @@
+
+@mixin grid-center{
+  display: grid; justify-content: center;
+  align-content: center;
+}
+@mixin grid-container($columns, $gap){
+  display: grid;
+  grid-template-columns: $columns;
+  gap: $gap;
+}
+
+@mixin respond($breakpoint){
+  @if $breakpoint == mobile{
+    @media (max-width:$bp-mobile){
+      @content;
+    }
+  }
+  @else if $breakpoint == tablet{
+    @media (max-width:$bp-tablet){
+      @content;
+    }
+  }
+  @else if $breakpoint == desktop{
+    @media (max-width:$bp-desktop){
+      @content;
+    }
+  }
+}
+
+@mixin hover{
+  border-color: $color-bg-pink;
+}
+
+@mixin border($side:all){
+  @if $side == all{
+    border: 2px solid $color-border;
+  }
+  @else if $side == top{
+    border-top: 2px solid $color-border;
+  }
+  @else if $side == bottom{
+    border-bottom: 2px solid $color-border;
+  }
+  @else if $side == left{
+    border-left: 2px solid $color-border;
+  }
+  @else if $side == right{
+    border-right: 2px solid $color-border;
+  }
+}

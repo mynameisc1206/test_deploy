@@ -1,0 +1,76 @@
+header{
+  @include border(bottom);
+  background-color: $color-white;
+  .container{
+    @include grid-container(auto 1fr auto, $grid-gap-lg);
+    align-items: center;
+    padding: $spacing-lg 0;
+   //로고
+  .logo{
+    font-size: 28px;
+    font-weight: 900;
+  }
+    // 네비게이션
+  nav{
+    ul{
+      @include grid-container(repeat(3, auto), $spacing-2xl);
+      justify-self: start;
+      li{
+        a{
+          color: $color-gray;
+          font-size: $font-xl;
+          font-weight: 500;
+          transition: 0.2s;
+          &:hover{color: $color-black;}
+        }
+      }
+    }
+  }
+  // 헤더 버튼 파트
+  .header-action{
+    @include grid-container(repeat(2, auto), $spacing-sm);
+    .icon-btn{
+      @include grid-center;
+      @include border(all);
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      transition: 0.2s;
+      &:hover{
+        background-color: $color-black;
+        svg{filter: invert(100%);}
+      }
+    }
+  }
+ }
+}
+//반응형
+@include respond(desktop){
+  header{
+    .container{
+    padding: $spacing-md;
+    width: 100%;
+   }
+  }
+}
+@include respond(tablet){
+  header{
+     .container{
+      @include grid-container(auto 1fr, $grid-gap-sm);
+      width: 100%;
+      .header-action{
+        justify-content: start;
+      }
+     }
+  }
+}
+@include respond(mobile){
+  header{
+     .container{
+      @include grid-container(1fr, $grid-gap-sm);
+      width: 100%;
+      .header-action{
+        justify-content: start;
+      }
+     }
+  }
+}
